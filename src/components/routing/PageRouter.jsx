@@ -6,10 +6,10 @@ import { File } from "../../containers";
 const PageRouter = () => {
   return (
     <Routes>
-      <Route path="/" exact element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/detail" element={<Detail />} />
+      <Route path="/" element={<Home />} />
+      <Route path="home/*" element={<Home />} />
+      <Route path="login" element={<Login />} />
+      <Route path="detail" element={<Detail />} />
     </Routes>
   );
 };
