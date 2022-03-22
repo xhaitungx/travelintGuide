@@ -1,0 +1,32 @@
+.table--container {
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: center;
+  th {
+    background-color: #6f7bd8;
+    color: white;
+    font-size: 12px;
+  }
+
+  td {
+    font-size: 12px;
+  }
+  th,
+  td {
+    padding: 5px 0;
+  }
+}
+
+.customer--table tr {
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(209, 255, 141);
+  }
+}
+
+.checked {
+  background-color: rgb(209, 255, 141);
+}

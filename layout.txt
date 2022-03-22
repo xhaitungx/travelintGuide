@@ -1,0 +1,12 @@
+1. Số lượng layout và trang:
+_ Trang chính
+_ Trang thông tin hướng dẫn viên
+
+2. Các trang nào có tương tác (ko là chỉ hiển thị):
+_ Trang chính: 
+    + Tiến trình: Đánh dấu tiến trình tour
+    + Hồ sơ: điểm danh
+
+_ Trang HDV:
+    + Cập nhật thông tin hướng dẫn viên
+    + Xem số tour đã tham gia
