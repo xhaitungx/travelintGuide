@@ -14,10 +14,8 @@ a {
 
 .App {
   width: 100vw;
-  height: 100vh;
-@media not all and (hover:hover) {
-        height: 100%;
-    }
+  min-height: 100vh;
+
 }
 
 .padding-section {
