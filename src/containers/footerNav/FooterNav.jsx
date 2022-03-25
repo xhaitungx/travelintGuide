@@ -7,11 +7,11 @@ const FooterNav = () => {
   const navigate = useNavigate();
   const handleButtonClick = (e) => {
     const target = e.target;
-    navigate(`/home/${e.target.id}`);
     const navButton = document.querySelectorAll(".footerNav--btn");
     for (let i = 0; i < navButton.length; i++)
       navButton[i].className = navButton[i].className.replace("active", "");
     target.className = target.className + " active";
+    navigate(`/home/${e.target.id}`);
   };
   return (
     <div className="footerNav">

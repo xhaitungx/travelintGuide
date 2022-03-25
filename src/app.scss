@@ -13,11 +13,16 @@ a {
 }
 
 .App {
- width:100vw;
-  height: 100vh;  
+  width: 100vw;
+  height: 100vh;
 }
 
 .padding-section {
   padding: 1rem 2rem;
 }
- 
+
+@media only screen and (max-width: 500px) {
+  .padding-section {
+    padding: 0.5rem 1rem;
+  }
+}

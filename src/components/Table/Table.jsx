@@ -1,4 +1,6 @@
 import React from "react";
+
+import { Face, SupportAgent } from "@mui/icons-material";
 import "./table.scss";
 const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
   const handleTrClick = (e) => {
@@ -10,7 +12,11 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
   };
   return (
     <div className="table--container">
-      <h3>{tableLabel}</h3>
+      <div className="table--label">
+        {customer ? <Face /> : <SupportAgent />}
+        <h3>{tableLabel}</h3>
+      </div>
+
       <table style={{ width: "100%" }} className={customer}>
         <colgroup>
           <col span="1" style={{ width: "15%" }} />

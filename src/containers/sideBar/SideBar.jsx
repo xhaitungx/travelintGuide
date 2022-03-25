@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "@mui/material";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import "./sideBar.scss";
 const SideBar = () => {
