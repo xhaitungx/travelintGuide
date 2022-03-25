@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@mui/material";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import "./footerNav.scss";
 const FooterNav = () => {
@@ -13,44 +12,27 @@ const FooterNav = () => {
     target.className = target.className + " active";
     navigate(`/home/${e.target.id}`);
   };
+
+  const navItems = [
+    { id: "tour", label: "Tour" },
+    { id: "process", label: "Tiến trình" },
+    { id: "file", label: "Hồ sơ" },
+    { id: "history", label: "Lịch sử" },
+  ];
+
   return (
     <div className="footerNav">
-      <div className="item">
-        <Button
-          id="tour"
-          className="footerNav--btn active"
-          onClick={handleButtonClick}
-        >
-          Tour
-        </Button>
-      </div>
-      <div className="item">
-        <Button
-          id="process"
-          className="footerNav--btn "
-          onClick={handleButtonClick}
-        >
-          Tiến trình
-        </Button>
-      </div>
-      <div className="item">
-        <Button
-          id="file"
-          className="footerNav--btn "
-          onClick={handleButtonClick}
-        >
-          Hồ sơ
-        </Button>
-      </div>
-      <div className="item">
-        <Button
-          id="history"
-          className="footerNav--btn "
-          onClick={handleButtonClick}
-        >
-          Lịch sử
-        </Button>
-      </div>
+      {navItems.map((item) => (
+        <div className="item">
+          <Button
+            id={item.id}
+            className="footerNav--btn active"
+            onClick={handleButtonClick}
+          >
+            {item.label}
+          </Button>
+        </div>
+      ))}
     </div>
   );
 };
