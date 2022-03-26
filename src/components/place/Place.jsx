@@ -4,14 +4,12 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
 } from "@mui/material";
 
 import "./place.scss";
-const Place = ({ id }) => {
+const Place = () => {
   const [open, setOpen] = useState(false);
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -34,18 +32,20 @@ const Place = ({ id }) => {
       </div>
       <div>
         <Dialog
+          scroll="paper"
+          fullWidth="100%"
+          maxWidth="lg"
           open={open}
           onClose={handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">
-            {"Use Google's location service?"}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              {id}
-            </DialogContentText>
+          <DialogTitle id="alert-dialog-title">{"Địa điểm: Osaka"}</DialogTitle>
+          <DialogContent dividers={true}>
+            <div className="overFlow">
+              <h1>Cập nhật trạng thái tiến trình</h1>
+              <h1>Gợi ý tham quan</h1>
+            </div>
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Disagree</Button>
