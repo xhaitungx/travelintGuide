@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Login, Home, Detail } from "../../pages";
-import { File } from "../../containers";
+
 const PageRouter = () => {
   return (
     <Routes>

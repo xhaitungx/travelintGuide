@@ -5,7 +5,6 @@ const ComponentsRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Tour />} />
-      <Route path="tour" element={<Tour />} />
       <Route path="process" element={<Process />} />
       <Route path="file" element={<File />} />
       <Route path="history" element={<History />} />
