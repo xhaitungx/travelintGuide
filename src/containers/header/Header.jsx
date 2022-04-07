@@ -5,7 +5,7 @@ import "./header.scss";
 const Header = () => {
   const [settingOpen, setSettingOpen] = useState(false);
   const settingOptions = [
-    { id: "detail", label: "Tài khoản" },
+    { id: "home/detail", label: "Chi tiết" },
     { id: "login", label: "Đăng xuất" },
   ];
   const navigate = useNavigate();

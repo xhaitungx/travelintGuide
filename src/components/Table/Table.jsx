@@ -14,7 +14,7 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
     <div className="table--container">
       <div className="table--label">
         {customer ? <Face /> : <SupportAgent />}
-        <h3>{tableLabel}</h3>
+        <h2>{tableLabel}</h2>
       </div>
 
       <table style={{ width: "100%" }} className={customer}>
@@ -26,7 +26,9 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
         <thead>
           <tr>
             {tableHeading.map((heading) => (
-              <th>{heading}</th>
+              <th>
+                <h3>{heading}</h3>
+              </th>
             ))}
           </tr>
         </thead>
@@ -34,16 +36,28 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
           {customer
             ? tableData.map((data, index) => (
                 <tr onClick={handleTrClick} id={data.id} data-id={data.id}>
-                  <td>{index}</td>
-                  <td>{data.name}</td>
-                  <td>{data.phone}</td>
+                  <td>
+                    <p>{index}</p>
+                  </td>
+                  <td>
+                    <p>{data.name}</p>
+                  </td>
+                  <td>
+                    <p>{data.phone}</p>
+                  </td>
                 </tr>
               ))
             : tableData.map((data) => (
                 <tr>
-                  <td>{data.role}</td>
-                  <td>{data.name}</td>
-                  <td>{data.phone}</td>
+                  <td>
+                    <p>{data.role}</p>
+                  </td>
+                  <td>
+                    <p>{data.name}</p>
+                  </td>
+                  <td>
+                    <p>{data.phone}</p>
+                  </td>
                 </tr>
               ))}
         </tbody>

@@ -21,8 +21,25 @@ a {
   padding: 1rem 2rem;
 }
 
+h3 {
+  font-size: 26px;
+  color: white;
+}
+
+p {
+  font-size: 22px;
+}
+
 @media only screen and (max-width: 500px) {
   .padding-section {
     padding: 0.5rem 1rem;
+  }
+  h3 {
+    font-size: 20px;
+    color: white;
+  }
+
+  p {
+    font-size: 14px;
   }
 }

@@ -8,11 +8,13 @@ import {
 } from "@mui/material";
 
 import "./place.scss";
-const Place = () => {
+const Place = ({ data }) => {
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
   };
+
+  console.log(data);
 
   const handleClose = () => {
     setOpen(false);
@@ -22,12 +24,14 @@ const Place = () => {
     <>
       <div className="place--container" onClick={handleClickOpen}>
         <div className="place--img">
-          <img src={require("./sth.png")} />
-          <small className="status going">Đang đến</small>
+          <img src={data.img} />
+          <small className={`status ${data.status.className}`}>
+            {data.status.label}
+          </small>
         </div>
         <div className="place--information">
-          <h3>Tên địa điểm: Heaven</h3>
-          <p>Vị trí: Cloud street</p>
+          <h1>{data.name}</h1>
+          <p>{data.location}</p>
         </div>
       </div>
       <div>

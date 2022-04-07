@@ -3,8 +3,14 @@
   justify-content: center;
   width: 70%;
   height: 30%;
+  background-color: rgb(255, 255, 255);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 4px 45px -15px;
+
   &:hover {
-    background-color: grey;
+    background-color: rgb(240, 240, 240);
     cursor: pointer;
   }
 }
@@ -23,6 +29,8 @@
   position: absolute;
   top: 5px;
   left: 5px;
+
+  padding: 0 1rem;
   border-radius: 15px;
   &.done {
     background-color: greenyellow;
