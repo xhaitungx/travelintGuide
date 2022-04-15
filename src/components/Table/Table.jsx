@@ -5,10 +5,11 @@ import "./table.scss";
 const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
   const handleTrClick = (e) => {
     const target = e.target;
-    var parent = target.parentElement;
-    console.log(parent.id);
-    console.log(parent.dataset.id);
-    parent.className ? (parent.className = "") : (parent.className = "checked");
+    const td = target.parentElement;
+    const tr = td.parentElement;
+    console.log(target);
+    console.log(tr);
+    tr.className ? (tr.className = "") : (tr.className = "checked");
   };
   return (
     <div className="table--container">
@@ -35,14 +36,14 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
         <tbody>
           {customer
             ? tableData.map((data, index) => (
-                <tr onClick={handleTrClick} id={data.id} data-id={data.id}>
-                  <td>
+                <tr id={data.id} data-id={data.id}>
+                  <td onClick={handleTrClick}>
                     <p>{index}</p>
                   </td>
-                  <td>
+                  <td onClick={handleTrClick}>
                     <p>{data.name}</p>
                   </td>
-                  <td>
+                  <td onClick={handleTrClick}>
                     <p>{data.phone}</p>
                   </td>
                 </tr>
