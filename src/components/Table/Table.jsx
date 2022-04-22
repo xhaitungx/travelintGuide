@@ -33,6 +33,7 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
             ))}
           </tr>
         </thead>
+        {/* sdsdsd */}
         <tbody>
           {customer
             ? tableData.map((data, index) => (
