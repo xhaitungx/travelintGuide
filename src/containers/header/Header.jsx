@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { LoginContext } from "../../LoginContext";
 
 import "./header.scss";
 const Header = () => {
   const [settingOpen, setSettingOpen] = useState(false);
+  const guiderID = useContext(LoginContext);
   const settingOptions = [
-    { id: "home/detail", label: "Chi tiết" },
-    { id: "login", label: "Đăng xuất" },
+    { id: "home/detail", label: "Chi tiết", function: () => {} },
+    {
+      id: "login",
+      label: "Đăng xuất",
+      function: () => {
+        window.sessionStorage.clear();
+        window.location.href = "http://localhost:3000/login";
+      },
+    },
   ];
   const navigate = useNavigate();
   return (
@@ -22,7 +31,7 @@ const Header = () => {
           <div className="setting">
             <ul className="setting--option">
               {settingOptions.map((item) => (
-                <li onClick={() => navigate(`/${item.id}`)}>{item.label}</li>
+                <li onClick={item.function}>{item.label}</li>
               ))}
             </ul>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Routes, Route, Navigate } from "react-router-dom";
-import { Login, Home, Detail } from "../../pages";
+import { Routes, Route } from "react-router-dom";
+import { Login, Home } from "../../pages";
 
 const PageRouter = () => {
   return (

@@ -41,10 +41,10 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
                     <p>{index}</p>
                   </td>
                   <td onClick={handleTrClick}>
-                    <p>{data.name}</p>
+                    <p>{data.ho_ten}</p>
                   </td>
                   <td onClick={handleTrClick}>
-                    <p>{data.phone}</p>
+                    <p>{data.sdt}</p>
                   </td>
                 </tr>
               ))
@@ -54,10 +54,10 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
                     <p>{data.role}</p>
                   </td>
                   <td>
-                    <p>{data.name}</p>
+                    <p>{data.ho_ten}</p>
                   </td>
                   <td>
-                    <p>{data.phone}</p>
+                    <p>{data.sdt}</p>
                   </td>
                 </tr>
               ))}

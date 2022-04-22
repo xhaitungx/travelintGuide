@@ -17,7 +17,6 @@ const SideBar = () => {
     { id: "/", label: "Tour" },
     { id: "/home/process", label: "Tiến trình" },
     { id: "/home/file", label: "Hồ sơ" },
-    { id: "/home/history", label: "Lịch sử" },
   ];
   return (
     <div className="SideBar">

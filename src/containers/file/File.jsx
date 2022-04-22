@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { TextField } from "@mui/material";
-
+import { TourDataContext } from "../../pages/home/TourDataContext";
 import { Table } from "../../components";
 import "./file.scss";
 const File = () => {
   const [inputSearch, setInputSearch] = useState("");
+  const { khach_hang } = useContext(TourDataContext);
+
   const staffHeading = ["Vai trò", "Họ Tên", "SĐT"];
   const customerHeading = ["STT", "Họ Tên", "SĐT"];
   const staffData = [
-    { role: "Tài xế", name: "Long", phone: "04444442" },
-    { role: "HDV", name: "Tùng", phone: "013242" },
+    { role: "Tài xế", ho_ten: "Long", sdt: "04444442" },
+    { role: "HDV", ho_ten: "Tùng", sdt: "013242" },
   ];
   const customerData = [
-    { id: 1, name: "Tùng", phone: "013242" },
-    { id: 2, name: "Long", phone: "04444442" },
-    { id: 4, name: "Nhân", phone: "01222222242" },
+    { id: 1, ho_ten: "Tùng", sdt: "013242" },
+    { id: 2, ho_ten: "Long", sdt: "04444442" },
+    { id: 4, ho_ten: "Nhân", sdt: "01222222242" },
   ];
 
   const customerSearch = (e) => {
@@ -22,13 +24,11 @@ const File = () => {
   };
 
   const searchedData = customerData.filter((customer) =>
-    customer.name.toLowerCase().includes(inputSearch.toLowerCase())
+    customer.ho_ten.toLowerCase().includes(inputSearch.toLowerCase())
   );
 
-  console.log(searchedData);
-
   return (
-    <div className="file">
+    <div classho_ten="file">
       <Table
         tableLabel="Nhân viên"
         customer=""
@@ -38,6 +38,7 @@ const File = () => {
       <TextField
         type="text"
         onChange={customerSearch}
+        placeholder="Nhập tên khách hàng (có dấu)"
         sx={{ width: "100%", margin: "2rem 0 1rem 0" }}
       />
       {inputSearch ? (
@@ -52,7 +53,7 @@ const File = () => {
           tableLabel="Khách hàng"
           customer="customer--table"
           tableHeading={customerHeading}
-          tableData={customerData}
+          tableData={khach_hang}
         />
       )}
     </div>
