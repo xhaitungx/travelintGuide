@@ -26,7 +26,7 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
         </colgroup>
         <thead>
           <tr>
-            {tableHeading.map((heading) => (
+            {tableHeading?.map((heading) => (
               <th>
                 <h3>{heading}</h3>
               </th>
@@ -36,7 +36,7 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
         {/* sdsdsd */}
         <tbody>
           {customer
-            ? tableData.map((data, index) => (
+            ? tableData?.map((data, index) => (
                 <tr id={data.id} data-id={data.id}>
                   <td onClick={handleTrClick}>
                     <p>{index}</p>
@@ -49,7 +49,7 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
                   </td>
                 </tr>
               ))
-            : tableData.map((data) => (
+            : tableData?.map((data) => (
                 <tr>
                   <td>
                     <p>{data.role}</p>
