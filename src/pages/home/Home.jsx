@@ -35,7 +35,9 @@ const Home = () => {
     <TourDataContext.Provider value={dataTour}>
       <div className="App">
         <Header />
-        <div className="content">
+        <ComponentsRouter />
+      </div>
+      {/* <div className="content">
           <div className="sidebar--container">
             <SideBar />
           </div>
@@ -47,10 +49,10 @@ const Home = () => {
         <div className="footerNav--container">
           <FooterNav />
         </div>
-      </div>
+      </div> */}
     </TourDataContext.Provider>
   );
 };
 
 export default Home;
-// 
+//

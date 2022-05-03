@@ -9,7 +9,6 @@ const App = () => {
 
   const checkLogin = () => {
     const guiderID = window.sessionStorage.getItem("guiderID");
-    console.log(window.location.pathname);
     if (guiderID === null && window.location.pathname !== "/login")
       window.location.href = "http://localhost:3000/login";
   };

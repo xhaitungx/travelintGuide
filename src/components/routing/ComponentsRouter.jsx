@@ -5,9 +5,6 @@ const ComponentsRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<Tour />} />
-      <Route path="process" element={<Process />} />
-      <Route path="file" element={<File />} />
-
       <Route path="detail" element={<Detail />} />
     </Routes>
   );
