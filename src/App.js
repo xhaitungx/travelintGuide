@@ -10,8 +10,7 @@ const App = () => {
   const checkLogin = () => {
     const guiderID = window.sessionStorage.getItem("guiderID");
     if (guiderID === null && window.location.pathname !== "/login")
-      window.location.href =
-        "https://splendorous-twilight-340914.netlify.app/login";
+      window.location.href = "/login";
   };
 
   return (

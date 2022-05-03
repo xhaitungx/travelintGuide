@@ -1,0 +1,13 @@
+.detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .btn--group {
+    margin-bottom: 2rem;
+  }
+
+  .content {
+    width: 100%;
+  }
+}

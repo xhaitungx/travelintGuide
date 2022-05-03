@@ -35,21 +35,10 @@ const Home = () => {
     <TourDataContext.Provider value={dataTour}>
       <div className="App">
         <Header />
-        <ComponentsRouter />
+        <div className="padding-section">
+          <ComponentsRouter />
+        </div>
       </div>
-      {/* <div className="content">
-          <div className="sidebar--container">
-            <SideBar />
-          </div>
-          <div className="component padding-section">
-            <ComponentsRouter />
-          </div>
-        </div>
-
-        <div className="footerNav--container">
-          <FooterNav />
-        </div>
-      </div> */}
     </TourDataContext.Provider>
   );
 };

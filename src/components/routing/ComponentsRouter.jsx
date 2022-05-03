@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { Tour, Process, File, Detail } from "../../containers";
+import { Tour, Detail } from "../../containers";
 const ComponentsRouter = () => {
   return (
     <Routes>

@@ -16,8 +16,8 @@ const Login = () => {
           window.sessionStorage.setItem("guiderID", Data["_id"]);
           window.sessionStorage.setItem("guiderName", Data.ho_ten);
 
-          window.location.href =
-            "https://splendorous-twilight-340914.netlify.app";
+          window.location.href = "/";
+          // "https://splendorous-twilight-340914.netlify.app"
         });
     };
 

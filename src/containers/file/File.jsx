@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { TextField } from "@mui/material";
-import { TourDataContext } from "../../pages/home/TourDataContext";
 import { Table } from "../../components";
 import "./file.scss";
 const File = ({ fileData }) => {
@@ -16,7 +15,7 @@ const File = ({ fileData }) => {
   );
 
   return (
-    <div classho_ten="file">
+    <div className="file">
       <TextField
         type="text"
         onChange={customerSearch}

@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import axios from "axios";
 
+import "./detail.scss";
 const Detail = () => {
   const [proccessOn, setProccessOn] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
