@@ -5,6 +5,7 @@ import { LoginContext } from "../../LoginContext";
 import "./header.scss";
 const Header = () => {
   const [settingOpen, setSettingOpen] = useState(false);
+  const [menuOn, setMenuOn] = useState(false);
   const guiderID = useContext(LoginContext);
   const settingOptions = [
     { id: "home/detail", label: "Chi tiết", function: () => {} },
@@ -22,12 +23,14 @@ const Header = () => {
     <div className="header">
       <div
         className="icon"
+        onMouseEnter={() => setMenuOn(true)}
+        onMouseLeave={() => setMenuOn(false)}
         onClick={() => {
-          setSettingOpen(!settingOpen);
+          setMenuOn(false);
         }}
       >
-        icon
-        {settingOpen ? (
+        {window.sessionStorage.getItem("guiderName")}
+        {menuOn ? (
           <div className="setting">
             <ul className="setting--option">
               {settingOptions.map((item) => (
@@ -44,4 +47,4 @@ const Header = () => {
 };
 
 export default Header;
-// 
+//

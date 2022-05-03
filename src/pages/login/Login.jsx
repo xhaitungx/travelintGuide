@@ -6,10 +6,6 @@ import { TextField, Button } from "@mui/material";
 import "./login.scss";
 const Login = () => {
   const createLoginRequest = (values) => {
-    console.log(
-      "🚀 ~ file: Login.jsx ~ line 9 ~ createLoginRequest ~ values",
-      values
-    );
     const getGuiderID = (accountID) => {
       axios
         .get("https://tour-api-dev.herokuapp.com/huongdanvien")
@@ -18,6 +14,8 @@ const Login = () => {
             (guider) => guider.id_tai_khoan?.["_id"] === accountID
           );
           window.sessionStorage.setItem("guiderID", Data["_id"]);
+          window.sessionStorage.setItem("guiderName", Data.ho_ten);
+
           window.location.href = "http://localhost:3000";
         });
     };
