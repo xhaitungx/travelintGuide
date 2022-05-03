@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   Button,
   Dialog,
@@ -8,24 +9,95 @@ import {
 } from "@mui/material";
 
 import "./place.scss";
-const Place = ({ data }) => {
-  console.log("🚀 ~ file: Place.jsx ~ line 12 ~ Place ~ data", data);
-
+import axios from "axios";
+const Place = ({ data, status, proccessData, index }) => {
   const [open, setOpen] = useState(false);
+  const [statusState, setStatusState] = useState(status);
+  const [tourID, setTourID] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
   const handleClickOpen = () => {
     setOpen(true);
   };
+
+  useEffect(() => {
+    axios(
+      `http://tour-api-dev.herokuapp.com/tour/${searchParams.get("slug")}`
+    ).then(({ data }) => setTourID(data["_id"]));
+  }, []);
 
   const handleClose = () => {
     setOpen(false);
     console.log(open);
   };
+
+  // const renderButton = (status, index) => {
+  //   if (status === "Đang đến")
+  //     setButtonStatus({ color: "primary", variant: "outlined" });
+
+  //   if (status === "Đã tham quan")
+  //     setButtonStatus({ color: "success", variant: "contained" });
+  //   return (
+  //     <Button
+  //       variant={buttonStatus.variant}
+  //       color={buttonStatus.color}
+  //       onClick={setChangeStatus}
+  //     >
+  //       {status}
+  //     </Button>
+  //   );
+  // };
+
+  const renderButton = () => {
+    if (statusState === "Đang đến")
+      return (
+        <Button color="primary" variant="outlined" onClick={changeState}>
+          {statusState}
+        </Button>
+      );
+
+    if (statusState === "Đã tham quan")
+      return (
+        <Button color="success" variant="contained">
+          {statusState}
+        </Button>
+      );
+
+    return (
+      <Button color="error" variant="outlined" onClick={changeState}>
+        {statusState}
+      </Button>
+    );
+  };
+
+  const changeState = () => {
+    if (statusState === "Chưa hoàn thành") {
+      axios
+        .put(
+          `http://tour-api-dev.herokuapp.com/lichtrinh/${proccessData[index]["_id"]}`,
+          {
+            trang_thai: "Đang đến",
+          }
+        )
+        .then(() => setStatusState("Đang đến"));
+    }
+    if (statusState === "Đang đến") {
+      axios
+        .put(
+          `http://tour-api-dev.herokuapp.com/lichtrinh/${proccessData[index]["_id"]}`,
+          {
+            trang_thai: "Đã tham quan",
+          }
+        )
+        .then(() => setStatusState("Đã tham quan"));
+    }
+  };
+
   return (
     <>
       <div className="place--container" onClick={handleClickOpen}>
         <div className="place--img">
           <img src={`https://tour-api-dev.herokuapp.com${data.hinh}`} />
-          <small className={`status`}>{data.trang_thai}</small>
+          <small className={`status`}>{statusState}</small>
         </div>
         <div className="place--information">
           <h1>{data.ten}</h1>
@@ -42,7 +114,14 @@ const Place = ({ data }) => {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{"Địa điểm: Osaka"}</DialogTitle>
+          <DialogTitle
+            id="alert-dialog-title"
+            inputProps={{ index: index }}
+            sx={{ display: "flex", justifyContent: "space-between" }}
+          >
+            {`Địa điểm: ${data.ten}`}
+            {renderButton()}
+          </DialogTitle>
           <DialogContent dividers={true}>
             <div className="overFlow">
               <h1>Thông tin địa điểm</h1>
@@ -51,7 +130,7 @@ const Place = ({ data }) => {
             </div>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Disagree</Button>
+            <Button onClick={handleClose}>Thoát</Button>
           </DialogActions>
         </Dialog>
       </div>

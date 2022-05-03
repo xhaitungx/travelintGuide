@@ -41,7 +41,7 @@ const Detail = () => {
       </div>
       <div className="content">
         {proccessOn ? (
-          <Process processData={processData} />
+          <Process processData={processData} setProcessData={setProcessData} />
         ) : (
           <File fileData={fileData} />
         )}
