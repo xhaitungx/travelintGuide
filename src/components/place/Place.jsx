@@ -21,31 +21,13 @@ const Place = ({ data, status, proccessData, index }) => {
 
   useEffect(() => {
     axios(
-      `http://tour-api-dev.herokuapp.com/tour/${searchParams.get("slug")}`
+      `https://tour-api-dev.herokuapp.com/tour/${searchParams.get("slug")}`
     ).then(({ data }) => setTourID(data["_id"]));
   }, []);
 
   const handleClose = () => {
     setOpen(false);
-    console.log(open);
   };
-
-  // const renderButton = (status, index) => {
-  //   if (status === "Đang đến")
-  //     setButtonStatus({ color: "primary", variant: "outlined" });
-
-  //   if (status === "Đã tham quan")
-  //     setButtonStatus({ color: "success", variant: "contained" });
-  //   return (
-  //     <Button
-  //       variant={buttonStatus.variant}
-  //       color={buttonStatus.color}
-  //       onClick={setChangeStatus}
-  //     >
-  //       {status}
-  //     </Button>
-  //   );
-  // };
 
   const renderButton = () => {
     if (statusState === "Đang đến")
@@ -73,7 +55,7 @@ const Place = ({ data, status, proccessData, index }) => {
     if (statusState === "Chưa hoàn thành") {
       axios
         .put(
-          `http://tour-api-dev.herokuapp.com/lichtrinh/${proccessData[index]["_id"]}`,
+          `https://tour-api-dev.herokuapp.com/lichtrinh/${proccessData[index]["_id"]}`,
           {
             trang_thai: "Đang đến",
           }
@@ -83,7 +65,7 @@ const Place = ({ data, status, proccessData, index }) => {
     if (statusState === "Đang đến") {
       axios
         .put(
-          `http://tour-api-dev.herokuapp.com/lichtrinh/${proccessData[index]["_id"]}`,
+          `https://tour-api-dev.herokuapp.com/lichtrinh/${proccessData[index]["_id"]}`,
           {
             trang_thai: "Đã tham quan",
           }
