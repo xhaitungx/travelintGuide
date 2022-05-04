@@ -74,6 +74,14 @@ const Place = ({ data, status, proccessData, index }) => {
     }
   };
 
+  const renderStatusLabel = () => {
+    if (statusState === "Đang đến")
+      return <small className={`status done`}>{statusState}</small>;
+    else if (statusState === "Đã tham quan")
+      return <small className={`status going`}>{statusState}</small>;
+    else return <small className={`status wait`}>{statusState}</small>;
+  };
+
   return (
     <>
       <div className="place--container" onClick={handleClickOpen}>
@@ -83,6 +91,7 @@ const Place = ({ data, status, proccessData, index }) => {
         <div className="place--information">
           <h1>{data.ten}</h1>
           <p>{data.tinh_thanh}</p>
+          {renderStatusLabel()}
         </div>
       </div>
       <div>
@@ -108,7 +117,6 @@ const Place = ({ data, status, proccessData, index }) => {
               <h1>Thông tin địa điểm</h1>
               <p>{data.mo_ta}</p>
               <h1>Gợi ý tham quan</h1>
-              <small className={`status`}>{statusState}</small>
             </div>
           </DialogContent>
           <DialogActions>

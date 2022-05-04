@@ -26,6 +26,8 @@
   }
 }
 .status {
+  padding: 0 2rem;
+  border-radius: 15px;
   &.done {
     background-color: greenyellow;
   }
