@@ -79,7 +79,6 @@ const Place = ({ data, status, proccessData, index }) => {
       <div className="place--container" onClick={handleClickOpen}>
         <div className="place--img">
           <img src={`https://tour-api-dev.herokuapp.com${data.hinh}`} />
-          <small className={`status`}>{statusState}</small>
         </div>
         <div className="place--information">
           <h1>{data.ten}</h1>
@@ -109,6 +108,7 @@ const Place = ({ data, status, proccessData, index }) => {
               <h1>Thông tin địa điểm</h1>
               <p>{data.mo_ta}</p>
               <h1>Gợi ý tham quan</h1>
+              <small className={`status`}>{statusState}</small>
             </div>
           </DialogContent>
           <DialogActions>
