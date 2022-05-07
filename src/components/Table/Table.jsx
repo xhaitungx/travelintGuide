@@ -33,13 +33,12 @@ const Table = ({ tableLabel, customer, tableHeading, tableData }) => {
             ))}
           </tr>
         </thead>
-        {/* sdsdsd */}
         <tbody>
           {customer
             ? tableData?.map((data, index) => (
                 <tr id={data.id} data-id={data.id}>
                   <td onClick={handleTrClick}>
-                    <p>{index}</p>
+                    <p>{index+1}</p>
                   </td>
                   <td onClick={handleTrClick}>
                     <p>{data.ho_ten}</p>
