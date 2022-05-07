@@ -76,7 +76,7 @@ const Place = ({ data, status, proccessData, index }) => {
 
   const renderStatusLabel = () => {
     if (statusState === "Đang đến")
-      return <small className={`status done`}>{statusState}</small>;
+      return <small className={`status going`}>{statusState}</small>;
     else if (statusState === "Đã tham quan")
       return <small className={`status going`}>{statusState}</small>;
     else return <small className={`status wait`}>{statusState}</small>;
@@ -90,7 +90,6 @@ const Place = ({ data, status, proccessData, index }) => {
         </div>
         <div className="place--information">
           <h1>{data.ten}</h1>
-          <p>{data.tinh_thanh}</p>
           {renderStatusLabel()}
         </div>
       </div>

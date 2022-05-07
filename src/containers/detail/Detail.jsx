@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Process, File } from "../../containers";
+import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import axios from "axios";
 
+import { ArrowBack } from "@mui/icons-material";
 import "./detail.scss";
 const Detail = () => {
   const [proccessOn, setProccessOn] = useState(true);
@@ -20,8 +22,18 @@ const Detail = () => {
     });
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <div className="detail">
+      <Button
+        variant="outlined"
+        onClick={() => navigate("/")}
+        style={{ position: "absolute", left: 0 }}
+      >
+        {<ArrowBack />}
+        Trở về
+      </Button>
       <div className="btn--group">
         {proccessOn ? (
           <>
