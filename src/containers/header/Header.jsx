@@ -14,7 +14,7 @@ const Header = () => {
       label: "Đăng xuất",
       function: () => {
         window.sessionStorage.clear();
-        window.location.href = "http://localhost:3000/login";
+        window.location.href = "/login";
       },
     },
   ];
